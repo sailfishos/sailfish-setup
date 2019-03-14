@@ -1,0 +1,16 @@
+Makefile
+Makefile.*
+*.a
+*.so
+*.pc
+*.prl
+*.o
+*.pro.user*
+moc_*
+*.ts
+*.qm
+*.moc
+documentation.list
+installroot
+RPMS
+images
