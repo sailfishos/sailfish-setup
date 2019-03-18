@@ -7,7 +7,11 @@ License:    Public Domain
 Url:        https://github.com/sailfishos/sailfish-setup
 Source0:    %{name}-%{version}.tar.bz2
 
+Requires: setup
 Requires(pre): setup
+Requires(pre): /usr/bin/getent
+Requires(pre): /usr/sbin/groupadd
+Requires(pre): /usr/sbin/useradd
 
 %description
 %{summary}.
