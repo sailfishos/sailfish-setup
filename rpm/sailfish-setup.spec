@@ -25,5 +25,8 @@ if ! getent passwd sailfish-mdm >/dev/null ; then
 fi
 groupadd -rf sailfish-radio || :
 
+groupadd -f sailfish-mms || :
+usermod -a -G sailfish-mms nemo || :
+
 %files
 %defattr(-,root,root,-)
