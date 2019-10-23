@@ -24,6 +24,10 @@ if ! getent passwd sailfish-mdm >/dev/null ; then
     useradd -r -g sailfish-mdm -G privileged -d / -s /sbin/nologin sailfish-mdm || :
 fi
 groupadd -rf sailfish-radio || :
+groupadd -rf sailfish-actdead || :
+if ! getent passwd sailfish-actdead >/dev/null ; then
+    useradd -r -g sailfish-actdead -d / -s /sbin/nologin sailfish-actdead || :
+fi
 
 %files
 %defattr(-,root,root,-)
