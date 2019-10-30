@@ -29,5 +29,8 @@ if ! getent passwd sailfish-actdead >/dev/null ; then
     useradd -r -g sailfish-actdead -d / -s /sbin/nologin sailfish-actdead || :
 fi
 
+groupadd -rf sailfish-system || :
+usermod -a -G sailfish-system nemo || :
+
 %files
 %defattr(-,root,root,-)
