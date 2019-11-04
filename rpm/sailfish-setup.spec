@@ -32,5 +32,8 @@ fi
 groupadd -rf sailfish-system || :
 usermod -a -G sailfish-system nemo || :
 
+groupadd -rf ssu || :
+usermod -a -G ssu nemo || :
+
 %files
 %defattr(-,root,root,-)
