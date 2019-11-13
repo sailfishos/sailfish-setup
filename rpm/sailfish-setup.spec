@@ -48,5 +48,8 @@ usermod -a -G sailfish-system sailfish-mdm || :
 
 groupadd -rf ssu || :
 
+groupadd -rf sailfish-alarms || :
+usermod -a -G sailfish-alarms nemo || :
+
 %files
 %defattr(-,root,root,-)
