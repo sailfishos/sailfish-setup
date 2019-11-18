@@ -51,5 +51,8 @@ groupadd -rf ssu || :
 groupadd -rf sailfish-alarms || :
 usermod -a -G sailfish-alarms nemo || :
 
+groupadd -rf sailfish-datetime || :
+usermod -a -G sailfish-datetime nemo || :
+
 %files
 %defattr(-,root,root,-)
