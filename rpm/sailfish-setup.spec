@@ -55,5 +55,8 @@ usermod -a -G sailfish-alarms nemo || :
 groupadd -rf sailfish-datetime || :
 usermod -a -G sailfish-datetime nemo || :
 
+groupadd -rf timed || :
+usermod -a -G timed nemo || :
+
 %files
 %defattr(-,root,root,-)
