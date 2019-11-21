@@ -39,7 +39,8 @@ groupadd -fg 100000 nemo || :
 if ! getent passwd nemo >/dev/null ; then
     # Requirements - source component in brackets:
     # video for display (setup), input input devices (systemd), audio for itself (setup)
-    useradd -g nemo -G "video,input,audio" -u 100000 -m nemo || :
+    # users (setup)
+    useradd -g nemo -G "video,input,audio,users" -u 100000 -m nemo || :
 fi
 
 groupadd -rf sailfish-system || :
