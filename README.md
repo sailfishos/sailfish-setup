@@ -31,3 +31,5 @@ Groups that this package defines are listed below.
   - For processes that need to be able to access shared alarm events.
 - sailfish-datetime
   - For processes that need to be able to modify clock settings.
+- timed
+  - For timed process, required for changing system default timezone
