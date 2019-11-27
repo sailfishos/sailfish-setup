@@ -43,6 +43,9 @@ if ! getent passwd nemo >/dev/null ; then
     useradd -g nemo -G "video,input,audio,users" -u 100000 -m nemo || :
 fi
 
+groupadd -rf oneshot || :
+usermod -a -G oneshot nemo || :
+
 groupadd -rf sailfish-system || :
 usermod -a -G sailfish-system nemo || :
 usermod -a -G sailfish-system sailfish-mdm || :
