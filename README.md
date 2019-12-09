@@ -23,6 +23,9 @@ Groups that this package defines are listed below.
 
 - privileged
   - For processes that need to be able to access privileged data.
+- sailfish-system
+  - For users and processes that need to be able to control the device.
+    Device owner belongs to this group.
 - sailfish-mdm
   - For processes that need to be able to access MDM APIs.
 - sailfish-radio
