@@ -16,7 +16,7 @@ Requires(pre): systemd
 Requires(pre): /usr/bin/getent
 Requires(pre): /usr/sbin/groupadd
 Requires(pre): /usr/sbin/useradd
-Recommends: hardware-adaptation-setup
+Requires: hardware-adaptation-setup
 
 %description
 %{summary}.
