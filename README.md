@@ -36,3 +36,7 @@ Groups that this package defines are listed below.
   - For processes that need to be able to modify clock settings.
 - timed
   - For timed process, required for changing system default timezone
+
+Default system (SYSTEM_GROUPS) and additional user (USER_GROUPS) groups are
+stored in the file /usr/share/sailfish-setup/group.ids, system user will be created during
+boot if it does not already exist.
