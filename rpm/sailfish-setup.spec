@@ -16,6 +16,7 @@ Requires(pre): systemd
 Requires(pre): /usr/bin/getent
 Requires(pre): /usr/sbin/groupadd
 Requires(pre): /usr/sbin/useradd
+Requires(pre): /usr/sbin/usermod
 Recommends: hardware-adaptation-setup
 
 %description
@@ -33,33 +34,27 @@ if ! getent passwd sailfish-actdead >/dev/null ; then
     useradd -r -g sailfish-actdead -d / -s /sbin/nologin sailfish-actdead || :
 fi
 
-# TODO : This should be moved to the first boot (JB#48049)
-# Make sure that device owner exists.
-groupadd -fg 100000 nemo || :
-if ! getent passwd nemo >/dev/null ; then
-    # Requirements - source component in brackets:
-    # video for display (setup), input input devices (systemd), audio for itself (setup)
-    # users (setup)
-    useradd -g nemo -G "video,input,audio,users" -u 100000 -m nemo || :
-fi
-
 groupadd -rf oneshot || :
-usermod -a -G oneshot nemo || :
 
 groupadd -rf sailfish-system || :
-usermod -a -G sailfish-system nemo || :
 usermod -a -G sailfish-system sailfish-mdm || :
 
 groupadd -rf ssu || :
 
 groupadd -rf sailfish-alarms || :
-usermod -a -G sailfish-alarms nemo || :
 
 groupadd -rf sailfish-datetime || :
-usermod -a -G sailfish-datetime nemo || :
 
 groupadd -rf timed || :
-usermod -a -G timed nemo || :
+
+%prep
+%setup -q
+
+%build
+
+%install
+install -D group.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/group.ids
 
 %files
 %defattr(-,root,root,-)
+%{_datadir}/%{name}

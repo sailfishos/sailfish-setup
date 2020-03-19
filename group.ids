@@ -1,0 +1,2 @@
+SYSTEM_GROUPS sailfish-system,sailfish-datetime,timed,system,ssu
+USER_GROUPS video,input,audio,users,oneshot,sailfish-alarms,bluetooth,graphics,camera,media,media_rw,mtp,inet
