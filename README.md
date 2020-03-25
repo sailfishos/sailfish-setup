@@ -1,8 +1,8 @@
 Sailfish Setup
 ==============
 
-This package is responsible for creating Sailfish OS specific users and/or groups on which
-other packages could depend on.
+This package is responsible for creating Sailfish OS specific users
+and groups on which other packages may depend on.
 
 Usage
 -----
@@ -16,6 +16,7 @@ Users
 Users that this package defines are listed below.
 
 - sailfish-mdm
+- sailfish-actdead
 
 Groups
 ------
@@ -24,19 +25,23 @@ Groups that this package defines are listed below.
 - privileged
   - For processes that need to be able to access privileged data.
 - sailfish-system
-  - For users and processes that need to be able to control the device.
+  - For users that need to be able to control the device settings.
     Device owner belongs to this group.
 - sailfish-mdm
-  - For processes that need to be able to access MDM APIs.
+  - For sailfish-mdm user and processes that need to be able to access
+    MDM APIs.
 - sailfish-radio
   - For processes that need to be able to access mobile network related APIs.
 - sailfish-alarms
-  - For processes that need to be able to access shared alarm events.
+  - For users that need to be able to access shared alarm events.
 - sailfish-datetime
-  - For processes that need to be able to modify clock settings.
+  - For users that need to be able to modify clock settings.
 - timed
-  - For timed process, required for changing system default timezone
+  - For users and timed process, required to change system default
+    timezone.
+- sailfish-actdead
+  - For sailfish-actdead user.
 
 Default system (SYSTEM_GROUPS) and additional user (USER_GROUPS) groups are
-stored in the file /usr/share/sailfish-setup/group.ids, system user will be created during
-boot if it does not already exist.
+stored in the file /usr/share/sailfish-setup/group.ids, system user will be
+created during boot if it does not already exist.

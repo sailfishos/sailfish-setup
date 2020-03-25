@@ -2,7 +2,6 @@ Name:       sailfish-setup
 Summary:    Sailfish Setup
 Version:    0.1.0
 Release:    1
-Group:      System/Base
 License:    Public Domain
 Url:        https://github.com/sailfishos/sailfish-setup
 Source0:    %{name}-%{version}.tar.bz2
@@ -20,7 +19,8 @@ Requires(pre): /usr/sbin/usermod
 Recommends: hardware-adaptation-setup
 
 %description
-%{summary}.
+This package is responsible for creating Sailfish OS specific users
+and groups on which other packages may depend on.
 
 %pre
 groupadd -rf privileged || :
@@ -33,8 +33,6 @@ groupadd -rf sailfish-actdead || :
 if ! getent passwd sailfish-actdead >/dev/null ; then
     useradd -r -g sailfish-actdead -d / -s /sbin/nologin sailfish-actdead || :
 fi
-
-groupadd -rf oneshot || :
 
 groupadd -rf sailfish-system || :
 usermod -a -G sailfish-system sailfish-mdm || :
