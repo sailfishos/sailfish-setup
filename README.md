@@ -32,6 +32,10 @@ Groups that this package defines are listed below.
     MDM APIs.
 - sailfish-radio
   - For processes that need to be able to access mobile network related APIs.
+- sailfish-phone
+  - For users that need to be able to make calls.
+- sailfish-messages
+  - For users that need to be able to send SMS and MMS.
 - sailfish-alarms
   - For users that need to be able to access shared alarm events.
 - sailfish-datetime

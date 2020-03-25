@@ -24,11 +24,14 @@ and groups on which other packages may depend on.
 
 %pre
 groupadd -rf privileged || :
+
 groupadd -rf sailfish-mdm || :
 if ! getent passwd sailfish-mdm >/dev/null ; then
     useradd -r -g sailfish-mdm -G privileged -d / -s /sbin/nologin sailfish-mdm || :
 fi
+
 groupadd -rf sailfish-radio || :
+
 groupadd -rf sailfish-actdead || :
 if ! getent passwd sailfish-actdead >/dev/null ; then
     useradd -r -g sailfish-actdead -d / -s /sbin/nologin sailfish-actdead || :
@@ -44,6 +47,10 @@ groupadd -rf sailfish-alarms || :
 groupadd -rf sailfish-datetime || :
 
 groupadd -rf timed || :
+
+groupadd -rf sailfish-phone || :
+
+groupadd -rf sailfish-messages || :
 
 %prep
 %setup -q
