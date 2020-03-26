@@ -1,2 +1,2 @@
-SYSTEM_GROUPS sailfish-system,sailfish-datetime,timed,system,ssu
+SYSTEM_GROUPS sailfish-system,sailfish-datetime,timed,ssu
 USER_GROUPS video,input,audio,users,sailfish-alarms,sailfish-phone,sailfish-messages,bluetooth
