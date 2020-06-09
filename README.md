@@ -15,8 +15,11 @@ Users
 -----
 Users that this package defines are listed below.
 
+- privileged
 - sailfish-mdm
 - sailfish-actdead
+- sailfish-code
+- sailfish-fingerprint
 
 Groups
 ------
@@ -41,10 +44,11 @@ Groups that this package defines are listed below.
 - sailfish-datetime
   - For users that need to be able to modify clock settings.
 - timed
-  - For users and timed process, required to change system default
-    timezone.
+  - For users and timed process, required to change system default timezone.
 - sailfish-actdead
   - For sailfish-actdead user.
+- sailfish-authentication
+  - For device lock.
 
 Default system (SYSTEM_GROUPS) and additional user (USER_GROUPS) groups are
 stored in the file /usr/share/sailfish-setup/group.ids, system user will be
