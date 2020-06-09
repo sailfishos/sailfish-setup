@@ -24,6 +24,9 @@ and groups on which other packages may depend on.
 
 %pre
 groupadd -rf privileged || :
+if ! getent passwd privileged >/dev/null ; then
+    useradd -r -g privileged  -d / -s /sbin/nologin privileged || :
+fi
 
 groupadd -rf sailfish-mdm || :
 if ! getent passwd sailfish-mdm >/dev/null ; then
@@ -51,6 +54,14 @@ groupadd -rf timed || :
 groupadd -rf sailfish-phone || :
 
 groupadd -rf sailfish-messages || :
+
+groupadd -rf sailfish-authentication || :
+if ! getent passwd sailfish-code >/dev/null ; then
+    useradd -r -g sailfish-authentication -d / -s /sbin/nologin sailfish-code || :
+fi
+if ! getent passwd sailfish-fingerprint >/dev/null ; then
+    useradd -r -g sailfish-authentication -d / -s /sbin/nologin sailfish-fingerprint || :
+fi
 
 %prep
 %setup -q
