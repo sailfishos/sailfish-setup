@@ -1,2 +1,3 @@
 installroot
 RPMS
+*.list

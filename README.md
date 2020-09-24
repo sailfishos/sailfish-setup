@@ -2,7 +2,7 @@ Sailfish Setup
 ==============
 
 This package is responsible for creating Sailfish OS specific users
-and groups on which other packages may depend on.
+and groups which other packages may depend on.
 
 Usage
 -----
@@ -50,6 +50,19 @@ Groups that this package defines are listed below.
 - sailfish-authentication
   - For device lock.
 
-Default system (SYSTEM_GROUPS) and additional user (USER_GROUPS) groups are
-stored in the file /usr/share/sailfish-setup/group.ids, system user will be
-created during boot if it does not already exist.
+Device owner's (SYSTEM\_GROUPS) and additional users' (USER\_GROUPS and
+USER\_GROUPS\_DEFAULT) groups are stored in file
+***/usr/share/sailfish-setup/group_ids.env***. Device owner will be created
+during boot if it does not already exist.
+
+Account groups
+--------------
+Account provider group specifies all users that are allowed to create an account
+for respective provider. They are not created inside this package but instead
+they have a specific format and are created by account packages themselves.
+
+There is a script for managing these groups. If you want that to limit an
+account provider to arbitrary users, see ***scripts/manage-groups.sh*** script
+for more instructions. If account provider is limited to a group that is already
+listed in this file instead, you don't need to create account provider group but
+you should still specify the needed group within account provider configuration.
