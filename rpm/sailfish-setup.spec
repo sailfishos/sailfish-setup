@@ -12,10 +12,19 @@ Requires(pre): setup
 # Some mandatory groups are created by systemd like input
 Requires: systemd
 Requires(pre): systemd
+# Commands used by scriptlets
 Requires(pre): /usr/bin/getent
 Requires(pre): /usr/sbin/groupadd
 Requires(pre): /usr/sbin/useradd
 Requires(pre): /usr/sbin/usermod
+# Needed by manage-groups.sh
+Requires: /usr/bin/getent
+Requires: /usr/sbin/groupadd
+Requires: /usr/sbin/groupdel
+Requires: /usr/sbin/usermod
+Requires: coreutils
+Requires: grep
+# Other
 Recommends: hardware-adaptation-setup
 
 %description
@@ -69,8 +78,10 @@ fi
 %build
 
 %install
-install -D group.ids $RPM_BUILD_ROOT%{_datadir}/%{name}/group.ids
+install -D group_ids.env $RPM_BUILD_ROOT%{_datadir}/%{name}/group_ids.env
+install -D scripts/manage-groups.sh $RPM_BUILD_ROOT%{_libexecdir}/manage-groups
 
 %files
 %defattr(-,root,root,-)
 %{_datadir}/%{name}
+%{_libexecdir}/manage-groups
