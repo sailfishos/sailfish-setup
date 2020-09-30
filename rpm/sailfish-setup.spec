@@ -26,6 +26,7 @@ Requires: coreutils
 Requires: grep
 # Other
 Recommends: hardware-adaptation-setup
+Provides: %{_libexecdir}/manage-groups
 
 %description
 This package is responsible for creating Sailfish OS specific users
