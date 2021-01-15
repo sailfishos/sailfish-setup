@@ -73,6 +73,8 @@ if ! getent passwd sailfish-fingerprint >/dev/null ; then
     useradd -r -g sailfish-authentication -d / -s /sbin/nologin sailfish-fingerprint || :
 fi
 
+useradd -U qr || :
+
 %prep
 %setup -q
 
