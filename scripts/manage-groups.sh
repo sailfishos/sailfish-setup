@@ -42,7 +42,7 @@ _get_flag_file() { # $1: group name or group prefix
 }
 
 _add_users_to_managed_group() { # $1: usernames, $2: group name
-    if [ ! -e "$(_get_flag_file "$1")" ]
+    if [ ! -e "$(_get_flag_file "$2")" ]
     then
         for username in $(echo "$1" | tr , " ")
         do
