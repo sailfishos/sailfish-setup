@@ -75,30 +75,30 @@ fi
 
 APPSUPPORT_BASE_UID=500000
 if ! getent group appsupport-root >/dev/null ; then
-    groupadd -g $APPSUPPORT_BASE_UID appsupport-root
+    groupadd -g $APPSUPPORT_BASE_UID appsupport-root || :
 fi
 
 if ! getent group appsupport-system >/dev/null ; then
     APPSUPPORT_SYSTEM=$(($APPSUPPORT_BASE_UID + 1000))
-    groupadd -g $APPSUPPORT_SYSTEM appsupport-system
+    groupadd -g $APPSUPPORT_SYSTEM appsupport-system || :
 fi
 
 if ! getent group appsupport-radio >/dev/null ; then
     APPSUPPORT_RADIO=$(($APPSUPPORT_BASE_UID + 1001))
-    groupadd -g $APPSUPPORT_RADIO appsupport-radio
+    groupadd -g $APPSUPPORT_RADIO appsupport-radio || :
 fi
 
 if ! getent group appsupport-media_rw >/dev/null ; then
     APPSUPPORT_MEDIA_RW=$(($APPSUPPORT_BASE_UID + 1023))
-    groupadd -g $APPSUPPORT_MEDIA_RW appsupport-media_rw
+    groupadd -g $APPSUPPORT_MEDIA_RW appsupport-media_rw || :
 fi
 
 if ! getent passwd appsupport-root >/dev/null ; then
-    useradd -u $APPSUPPORT_BASE_UID -g appsupport-root -G appsupport-system,appsupport-radio,appsupport-media_rw -d /home/appsupport-root -s /sbin/nologin appsupport-root
+    useradd -u $APPSUPPORT_BASE_UID -g appsupport-root -G appsupport-system,appsupport-radio,appsupport-media_rw -d /home/appsupport-root -s /sbin/nologin appsupport-root || :
 fi
 
-usermod --add-subuids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) --add-subgids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) root
-usermod --add-subuids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) --add-subgids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) appsupport-root
+usermod --add-subuids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) --add-subgids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) root || :
+usermod --add-subuids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) --add-subgids $APPSUPPORT_BASE_UID-$(($APPSUPPORT_BASE_UID + 200000 - 1)) appsupport-root || :
 
 %prep
 %setup -q
